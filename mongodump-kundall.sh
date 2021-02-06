@@ -5,10 +5,6 @@ export DB_NAME=kundall_db
 
 mongodump --forceTableScan -d ${DB_NAME} -o ${DUMP_FOLDER}${FILE_NAME}
 
-cd ${DUMP_FOLDER}
+aws s3 cp ${DUMP_FOLDER}${FILE_NAME} s3://kundall-backup/mongo/ --recursive
 
-tar -zcvf ${FILE_NAME}.tar.gz ${FILE_NAME}
-
-aws s3 cp ./${FILE_NAME}.tar.gz s3://kundall-backup/mongo/${FILE_NAME}.tar.gz
-
-rm -fr ${FILE_NAME}.tar.gz
+# rm -fr ${DUMP_FOLDER}${FILE_NAME}
