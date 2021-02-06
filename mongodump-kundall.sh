@@ -9,6 +9,6 @@ cd ${DUMP_FOLDER}
 
 tar -zcvf ${FILE_NAME}.tar.gz ${FILE_NAME}
 
-aws s3 cp ./${FILE_NAME}.tar.gz s3://respaldos-backup/mongo/${FILE_NAME}.tar.gz
+aws s3 cp ./${FILE_NAME}.tar.gz s3://kundall-backup/mongo/${FILE_NAME}.tar.gz
 
 rm -fr ${FILE_NAME}.tar.gz
